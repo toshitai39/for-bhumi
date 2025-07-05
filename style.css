@@ -115,6 +115,10 @@ body {
 .card-front {
     transform: rotateY(0deg);
     background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 .poem-content {
@@ -155,6 +159,7 @@ body {
     margin-bottom: 1.5rem;
     font-weight: 600;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
 .poem-content .poem-text {
@@ -163,6 +168,10 @@ body {
     line-height: 1.6;
     margin-bottom: 2rem;
     animation: fadeInUp 0.8s ease-out 0.3s both;
+    text-align: center;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .back-btn {
@@ -176,6 +185,8 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+    align-self: center;
+    margin-top: auto;
 }
 
 .back-btn:hover {
@@ -239,6 +250,20 @@ body {
     overflow: hidden;
 }
 
+.magic-card h2,
+.magic-card p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.magic-card p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
 .magic-card::before {
     content: '';
     position: absolute;
@@ -288,24 +313,16 @@ body {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     font-weight: 600;
+    text-align: center;
 }
 
 .message-card p {
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.2rem;
     line-height: 1.6;
-}
-
-.magic-card h2 {
-    color: white;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.magic-card p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
 }
 
 /* Poem Section */
@@ -313,27 +330,6 @@ body {
     margin: 4rem 0;
     display: flex;
     justify-content: center;
-}
-
-/* Enhanced final poem section */
-.poem-section .poem-card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border-radius: 25px;
-    padding: 3rem;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    max-width: 700px;
-    animation: glow 3s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        box-shadow: 0 15px 35px rgba(255, 107, 157, 0.3);
-    }
-    to {
-        box-shadow: 0 15px 35px rgba(255, 217, 61, 0.3);
-    }
 }
 
 .poem-card h2 {
@@ -375,6 +371,171 @@ body {
     color: rgba(255, 255, 255, 0.95);
     font-size: 1.3rem;
     line-height: 1.6;
+}
+
+/* Cute floating cats */
+.floating-cats {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.cat {
+    position: absolute;
+    font-size: 3rem;
+    animation: floatCat 8s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.cat1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.cat2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.cat3 {
+    bottom: 30%;
+    left: 8%;
+    animation-delay: 4s;
+}
+
+.cat4 {
+    top: 60%;
+    right: 5%;
+    animation-delay: 6s;
+}
+
+.cat5 {
+    bottom: 10%;
+    right: 20%;
+    animation-delay: 1s;
+}
+
+@keyframes floatCat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-25px) rotate(3deg);
+    }
+}
+
+/* Mango corner box */
+.mango-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ffd93d 0%, #ff8e9b 100%);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+    z-index: 100;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    animation: mangoGlow 3s ease-in-out infinite alternate;
+}
+
+.mango-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mangoes {
+    margin: 0.8rem 0;
+}
+
+.mango {
+    font-size: 2rem;
+    display: inline-block;
+    margin: 0 0.2rem;
+    animation: bounceMango 2s ease-in-out infinite;
+}
+
+.mango:nth-child(1) { animation-delay: 0s; }
+.mango:nth-child(2) { animation-delay: 0.3s; }
+.mango:nth-child(3) { animation-delay: 0.6s; }
+
+.mango-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes mangoGlow {
+    from {
+        box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+    }
+    to {
+        box-shadow: 0 15px 40px rgba(255, 217, 61, 0.5);
+    }
+}
+
+@keyframes bounceMango {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.1);
+    }
+}
+
+/* Card cats */
+.card-cat {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: cardCatBounce 3s ease-in-out infinite;
+}
+
+@keyframes cardCatBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(-5deg);
+    }
+}
+
+/* Enhanced mobile responsiveness for cute elements */
+@media (max-width: 768px) {
+    .mango-box {
+        top: 10px;
+        right: 10px;
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .cat {
+        font-size: 2rem;
+    }
+    
+    .card-cat {
+        font-size: 2rem;
+    }
 }
 
 /* Responsive Design */

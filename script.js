@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Create animated stars
     createStars();
+    
+    // Create flying stars
+    createFlyingStars();
+    
+    // Add click listener for background color changes
+    document.addEventListener('click', changeBackgroundColor);
 });
 
 // Create animated stars
@@ -33,6 +39,84 @@ function createStars() {
         
         starsContainer.appendChild(star);
     }
+}
+
+// Create flying stars everywhere
+function createFlyingStars() {
+    setInterval(() => {
+        const flyingStar = document.createElement('div');
+        flyingStar.innerHTML = ['⭐', '✨', '🌟', '💫', '🌙'][Math.floor(Math.random() * 5)];
+        flyingStar.style.position = 'fixed';
+        flyingStar.style.left = Math.random() * window.innerWidth + 'px';
+        flyingStar.style.top = '-50px';
+        flyingStar.style.fontSize = '2rem';
+        flyingStar.style.pointerEvents = 'none';
+        flyingStar.style.zIndex = '99';
+        flyingStar.style.animation = 'flyDown 4s linear forwards';
+        
+        document.body.appendChild(flyingStar);
+        
+        setTimeout(() => {
+            if (flyingStar.parentNode) {
+                flyingStar.parentNode.removeChild(flyingStar);
+            }
+        }, 4000);
+    }, 800);
+}
+
+// Background color changer
+const backgroundColors = [
+    'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+    'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
+    'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)'
+];
+
+let currentBgIndex = 0;
+
+function changeBackgroundColor() {
+    currentBgIndex = (currentBgIndex + 1) % backgroundColors.length;
+    document.body.style.background = backgroundColors[currentBgIndex];
+    
+    // Create click sparkles
+    createClickSparkles(event.clientX, event.clientY);
+}
+
+function createClickSparkles(x, y) {
+    const sparkleContainer = document.createElement('div');
+    sparkleContainer.style.position = 'fixed';
+    sparkleContainer.style.left = x + 'px';
+    sparkleContainer.style.top = y + 'px';
+    sparkleContainer.style.pointerEvents = 'none';
+    sparkleContainer.style.zIndex = '1000';
+    
+    document.body.appendChild(sparkleContainer);
+    
+    for (let i = 0; i < 8; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.innerHTML = ['✨', '⭐', '🌟', '💫'][Math.floor(Math.random() * 4)];
+        sparkle.style.position = 'absolute';
+        sparkle.style.fontSize = '1.5rem';
+        
+        const angle = (i / 8) * 360;
+        const distance = 50;
+        const sparkleX = Math.cos(angle * Math.PI / 180) * distance;
+        const sparkleY = Math.sin(angle * Math.PI / 180) * distance;
+        
+        sparkle.style.animation = `clickSparkle 1s ease-out forwards`;
+        sparkle.style.setProperty('--sparkle-x', sparkleX + 'px');
+        sparkle.style.setProperty('--sparkle-y', sparkleY + 'px');
+        
+        sparkleContainer.appendChild(sparkle);
+    }
+    
+    setTimeout(() => {
+        document.body.removeChild(sparkleContainer);
+    }, 1000);
 }
 
 // Function to toggle poem visibility with flip animation
@@ -116,6 +200,28 @@ sparkleStyle.textContent = `
         }
         100% {
             transform: translateY(-50px) scale(1);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes flyDown {
+        0% {
+            transform: translateY(-50px) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes clickSparkle {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(var(--sparkle-x), var(--sparkle-y)) scale(0);
             opacity: 0;
         }
     }
