@@ -436,70 +436,6 @@ body {
     }
 }
 
-/* Mango corner box */
-.mango-box {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #ffd93d 0%, #ff8e9b 100%);
-    border-radius: 20px;
-    padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
-    z-index: 100;
-    text-align: center;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    animation: mangoGlow 3s ease-in-out infinite alternate;
-}
-
-.mango-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.mangoes {
-    margin: 0.8rem 0;
-}
-
-.mango {
-    font-size: 2rem;
-    display: inline-block;
-    margin: 0 0.2rem;
-    animation: bounceMango 2s ease-in-out infinite;
-}
-
-.mango:nth-child(1) { animation-delay: 0s; }
-.mango:nth-child(2) { animation-delay: 0.3s; }
-.mango:nth-child(3) { animation-delay: 0.6s; }
-
-.mango-text {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-style: italic;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes mangoGlow {
-    from {
-        box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
-    }
-    to {
-        box-shadow: 0 15px 40px rgba(255, 217, 61, 0.5);
-    }
-}
-
-@keyframes bounceMango {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        transform: translateY(-10px) scale(1.1);
-    }
-}
-
 /* Card cats */
 .card-cat {
     font-size: 2.5rem;
@@ -522,13 +458,6 @@ body {
 
 /* Enhanced mobile responsiveness for cute elements */
 @media (max-width: 768px) {
-    .mango-box {
-        top: 10px;
-        right: 10px;
-        padding: 1rem;
-        font-size: 0.9rem;
-    }
-    
     .cat {
         font-size: 2rem;
     }
