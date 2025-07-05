@@ -1,3 +1,40 @@
+// Initialize AOS (Animate On Scroll)
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+    
+    // Create animated stars
+    createStars();
+});
+
+// Create animated stars
+function createStars() {
+    const starsContainer = document.querySelector('.stars');
+    const numberOfStars = 100;
+
+    for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random position
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        
+        // Random animation delay
+        star.style.animationDelay = Math.random() * 2 + 's';
+        
+        // Random size
+        const size = Math.random() * 3 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        
+        starsContainer.appendChild(star);
+    }
+}
+
 // Function to toggle poem visibility with flip animation
 function togglePoem(card, poemId) {
     event.stopPropagation();
