@@ -16,19 +16,80 @@
         </header>
 
         <section class="messages">
-            <div class="message-card" data-aos="fade-up">
-                <h2>Hey Bhumi! 🌸</h2>
-                <p>I know you're a little upset, but I hope this makes you smile!</p>
+            <!-- Card 1: Greeting -->
+            <div class="message-card" data-aos="fade-right" onclick="togglePoem(this, 'poem1')">
+                <div class="card-front">
+                    <h2>Hey Bhumi! 🌸</h2>
+                    <p>I know you're a little upset, but I hope this makes you smile!</p>
+                    <span class="click-hint">Click to reveal a poem ✨</span>
+                </div>
+                <div class="poem-content" id="poem1">
+                    <h3>A Gentle Whisper</h3>
+                    <div class="poem-text">
+                        <p><em>When clouds gather in your sky,<br>
+                        And tears threaten to fall,<br>
+                        Remember you're my sunshine,<br>
+                        The brightest light of all.</em></p>
+                    </div>
+                    <button class="back-btn" onclick="togglePoem(this.parentElement.parentElement, 'poem1')">Back</button>
+                </div>
             </div>
             
-            <div class="message-card" data-aos="fade-up" data-aos-delay="200">
-                <h2>You're Amazing Because... 💖</h2>
-                <p>You always fill my days with laughter and joy.</p>
+            <!-- Card 2: Amazing qualities -->
+            <div class="message-card" data-aos="fade-left" data-aos-delay="200" onclick="togglePoem(this, 'poem2')">
+                <div class="card-front">
+                    <h2>You're Amazing Because... 💖</h2>
+                    <p>You always fill my days with laughter and joy.</p>
+                    <span class="click-hint">Click to reveal a poem ✨</span>
+                </div>
+                <div class="poem-content" id="poem2">
+                    <h3>Laughter's Gift</h3>
+                    <div class="poem-text">
+                        <p><em>Your laughter is like music,<br>
+                        A melody so sweet,<br>
+                        It turns my darkest moments<br>
+                        Into memories complete.</em></p>
+                    </div>
+                    <button class="back-btn" onclick="togglePoem(this.parentElement.parentElement, 'poem2')">Back</button>
+                </div>
             </div>
             
-            <div class="message-card" data-aos="fade-up" data-aos-delay="400">
-                <h2>You Deserve Everything 👑</h2>
-                <p>You deserve all the pampering in the world.</p>
+            <!-- Card 3: Deserving -->
+            <div class="message-card" data-aos="fade-right" data-aos-delay="400" onclick="togglePoem(this, 'poem3')">
+                <div class="card-front">
+                    <h2>You Deserve Everything 👑</h2>
+                    <p>You deserve all the pampering in the world.</p>
+                    <span class="click-hint">Click to reveal a poem ✨</span>
+                </div>
+                <div class="poem-content" id="poem3">
+                    <h3>Queen of Hearts</h3>
+                    <div class="poem-text">
+                        <p><em>Like a queen upon her throne,<br>
+                        You deserve the finest things,<br>
+                        Love and care and gentle words,<br>
+                        And all the joy life brings.</em></p>
+                    </div>
+                    <button class="back-btn" onclick="togglePoem(this.parentElement.parentElement, 'poem3')">Back</button>
+                </div>
+            </div>
+
+            <!-- Card 4: Friendship -->
+            <div class="message-card" data-aos="fade-left" data-aos-delay="600" onclick="togglePoem(this, 'poem4')">
+                <div class="card-front">
+                    <h2>Our Beautiful Bond 🤝</h2>
+                    <p>You make every moment special with your presence.</p>
+                    <span class="click-hint">Click to reveal a poem ✨</span>
+                </div>
+                <div class="poem-content" id="poem4">
+                    <h3>Friendship's Light</h3>
+                    <div class="poem-text">
+                        <p><em>In this journey we call life,<br>
+                        You're my compass and my guide,<br>
+                        Through every storm and sunshine,<br>
+                        You're always by my side.</em></p>
+                    </div>
+                    <button class="back-btn" onclick="togglePoem(this.parentElement.parentElement, 'poem4')">Back</button>
+                </div>
             </div>
         </section>
 
@@ -36,20 +97,25 @@
             <div class="magic-card" id="magicCard">
                 <div class="card-content">
                     <div class="heart">💫</div>
-                    <h2>Click for Magic!</h2>
-                    <p>Something special awaits...</p>
+                    <h2>Click for the Final Magic!</h2>
+                    <p>The most special message awaits...</p>
                 </div>
             </div>
         </section>
 
         <section class="poem-section" id="poemSection" style="display: none;">
             <div class="poem-card" data-aos="zoom-in">
-                <h2>A Poem for My Star 🌟</h2>
+                <h2>The Final Poem 🌟</h2>
                 <div class="poem-text">
                     <p><em>Like stars that twinkle in the night,<br>
                     You shine so bright, a pure delight.<br>
                     Through every laugh and every scar,<br>
-                    To me, Bhumi, you're my brightest star.</em></p>
+                    To me, Bhumi, you're my brightest star.<br><br>
+                    
+                    In moments when you feel alone,<br>
+                    Remember you have found a home<br>
+                    Within my heart, forever true,<br>
+                    There's no one quite as sweet as you.</em></p>
                 </div>
             </div>
         </section>
